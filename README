@@ -1,0 +1,131 @@
+libao
+------------------------------------------
+Libao is a cross-platform audio library that allows programs to output
+audio using a simple API on a wide variety of platforms.  It currently
+supports:
+   * Null output
+   * WAV files
+   * aRts (KDE sound daemon)
+   * NAS (X11 networked sound daemon)
+   * OSS (Open Sound System)
+   * ESD (ESounD or Enlightened Sound Daemon)
+
+Runtime requirements:
+  cygwin-1.5.24-2
+  arts-1.5.7-1
+  libaudio2-1.9-1
+  libesound0-0.2.38-1
+
+Build requirements:
+(besides corresponding devel packages)
+  cygwin-1.5.24-2
+  autoconf2.5-2.61-1
+  automake1.9-1.9.6-2
+  binutils-20060817-1
+  cygport-0.3.5-1
+  gawk-3.1.5-4
+  gcc-core-3.4.4-3
+  libtool1.5-1.5.23a-2
+  make-3.81-1
+  sed-4.1.5-2
+
+Canonical website:
+  http://www.vorbis.com/
+
+Canonical download:
+  http://downloads.xiph.com/releases/ao/
+
+-------------------------------------------
+
+Build instructions:
+  unpack libao-0.8.8-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./libao-0.8.8-X.cygport all
+
+This will create:
+  /usr/src/libao-0.8.8-X-src.tar.bz2
+  /usr/src/libao-0.8.8-X.tar.bz2
+  /usr/src/libao-devel-0.8.8-X.tar.bz2
+  /usr/src/libao2-0.8.8-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary packages:
+
+(libao)
+  /usr/share/doc/Cygwin/libao-0.8.8.README
+  /usr/share/doc/libao-0.8.8/AUTHORS
+  /usr/share/doc/libao-0.8.8/COPYING
+  /usr/share/doc/libao-0.8.8/Changes
+  /usr/share/doc/libao-0.8.8/README
+  /usr/share/doc/libao-0.8.8/TODO
+  /usr/share/doc/libao-0.8.8/ao_append_option.html
+  /usr/share/doc/libao-0.8.8/ao_close.html
+  /usr/share/doc/libao-0.8.8/ao_default_driver_id.html
+  /usr/share/doc/libao-0.8.8/ao_device.html
+  /usr/share/doc/libao-0.8.8/ao_driver_id.html
+  /usr/share/doc/libao-0.8.8/ao_driver_info.html
+  /usr/share/doc/libao-0.8.8/ao_driver_info_list.html
+  /usr/share/doc/libao-0.8.8/ao_example.c
+  /usr/share/doc/libao-0.8.8/ao_file_extension.html
+  /usr/share/doc/libao-0.8.8/ao_free_options.html
+  /usr/share/doc/libao-0.8.8/ao_info.html
+  /usr/share/doc/libao-0.8.8/ao_initialize.html
+  /usr/share/doc/libao-0.8.8/ao_is_big_endian.html
+  /usr/share/doc/libao-0.8.8/ao_open_file.html
+  /usr/share/doc/libao-0.8.8/ao_open_live.html
+  /usr/share/doc/libao-0.8.8/ao_option.html
+  /usr/share/doc/libao-0.8.8/ao_play.html
+  /usr/share/doc/libao-0.8.8/ao_plugin_close.html
+  /usr/share/doc/libao-0.8.8/ao_plugin_device_clear.html
+  /usr/share/doc/libao-0.8.8/ao_plugin_device_init.html
+  /usr/share/doc/libao-0.8.8/ao_plugin_driver_info.html
+  /usr/share/doc/libao-0.8.8/ao_plugin_file_extension.html
+  /usr/share/doc/libao-0.8.8/ao_plugin_open.html
+  /usr/share/doc/libao-0.8.8/ao_plugin_play.html
+  /usr/share/doc/libao-0.8.8/ao_plugin_set_option.html
+  /usr/share/doc/libao-0.8.8/ao_plugin_test.html
+  /usr/share/doc/libao-0.8.8/ao_sample_format.html
+  /usr/share/doc/libao-0.8.8/ao_shutdown.html
+  /usr/share/doc/libao-0.8.8/config.html
+  /usr/share/doc/libao-0.8.8/drivers.html
+  /usr/share/doc/libao-0.8.8/index.html
+  /usr/share/doc/libao-0.8.8/libao-api.html
+  /usr/share/doc/libao-0.8.8/overview.html
+  /usr/share/doc/libao-0.8.8/plugin-api.html
+  /usr/share/doc/libao-0.8.8/plugin-overview.html
+  /usr/share/doc/libao-0.8.8/style.css
+  /usr/share/man/man5/libao.conf.5.gz
+
+(libao2)
+  /usr/bin/cygao-2.dll
+  /usr/lib/ao/plugins-2/cygarts.dll
+  /usr/lib/ao/plugins-2/cygesd.dll
+  /usr/lib/ao/plugins-2/cygnas.dll
+  /usr/lib/ao/plugins-2/cygoss.dll
+  /usr/lib/ao/plugins-2/libarts.la
+  /usr/lib/ao/plugins-2/libesd.la
+  /usr/lib/ao/plugins-2/libnas.la
+  /usr/lib/ao/plugins-2/liboss.la
+
+(libao-devel)
+  /usr/include/ao/ao.h
+  /usr/include/ao/os_types.h
+  /usr/include/ao/plugin.h
+  /usr/lib/libao.dll.a
+  /usr/lib/libao.la
+  /usr/lib/pkgconfig/ao.pc
+  /usr/share/aclocal/ao.m4
+
+------------------
+
+Port Notes:
+
+----- version 0.8.8-1 -----
+Version bump.  Added aRts and NAS support.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/
