@@ -1,0 +1,22 @@
+DESCRIPTION="Xiph OGG container library"
+HOMEPAGE="http://www.vorbis.com/"
+SRC_URI="http://downloads.xiph.org/releases/${PN#lib}/${P}.tar.gz"
+
+abi=2
+PKG_NAMES="${PN} ${PN}${abi} ${PN}-devel"
+PKG_HINTS="setup lib devel"
+PKG_CONTENTS[0]=	# empty
+PKG_CONTENTS[1]="usr/bin/${PN/lib/cyg}-${abi}.dll usr/lib/ao/plugins-${abi}/*oss.*
+                 usr/share/doc/Cygwin/ usr/share/doc/${P}/[A-Z]* usr/share/man/"
+PKG_CONTENTS[2]="usr/include/ usr/lib/lib* usr/lib/pkgconfig/
+                 usr/share/aclocal/ usr/share/doc/${P}/[a-z]*"
+n=3
+for plugin in arts esd nas
+do
+	PKG_NAMES+=" ${PN}${abi}-${plugin}"
+	PKG_HINTS+=" ${plugin}"
+	PKG_CONTENTS[$((n++))]="usr/lib/ao/plugins-${abi}/*${plugin}.*"
+	CYGCONF_ARGS+=" --enable-${plugin}"
+done
+
+CYGCONF_ARGS+=" --disable-alsa --disable-alsa09 --disable-pulse --disable-wmm"

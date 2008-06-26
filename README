@@ -11,21 +11,21 @@ supports:
    * ESD (ESounD or Enlightened Sound Daemon)
 
 Runtime requirements:
-  cygwin-1.5.24-2
-  arts-1.5.7-1
-  libaudio2-1.9-1
-  libesound0-0.2.38-1
+  cygwin-1.5.25-15
+  arts-1.5.9-1
+  esound-0.2.38-1
+  nas-1.9.1-1
 
 Build requirements:
 (besides corresponding devel packages)
-  cygwin-1.5.24-2
   autoconf2.5-2.61-1
   automake1.9-1.9.6-2
-  binutils-20060817-1
-  cygport-0.3.5-1
-  gawk-3.1.5-4
+  binutils-20080523-1
+  cygport-0.3.11-1
+  gawk-3.1.6-1
   gcc-core-3.4.4-3
-  libtool1.5-1.5.23a-2
+  gcc-g++-3.4.4-3
+  libtool-2.2.2-2
   make-3.81-1
   sed-4.1.5-2
 
@@ -49,18 +49,45 @@ This will create:
   /usr/src/libao-0.8.8-X.tar.bz2
   /usr/src/libao-devel-0.8.8-X.tar.bz2
   /usr/src/libao2-0.8.8-X.tar.bz2
+  /usr/src/libao2-arts-0.8.8-X.tar.bz2
+  /usr/src/libao2-esd-0.8.8-X.tar.bz2
+  /usr/src/libao2-nas-0.8.8-X.tar.bz2
 
 -------------------------------------------
 
 Files included in the binary packages:
 
-(libao)
-  /usr/share/doc/Cygwin/libao-0.8.8.README
+(libao2)
+  /usr/bin/cygao-2.dll
+  /usr/lib/ao/plugins-2/cygoss.dll
+  /usr/lib/ao/plugins-2/liboss.la
   /usr/share/doc/libao-0.8.8/AUTHORS
   /usr/share/doc/libao-0.8.8/COPYING
   /usr/share/doc/libao-0.8.8/Changes
   /usr/share/doc/libao-0.8.8/README
   /usr/share/doc/libao-0.8.8/TODO
+  /usr/share/man/man5/libao.conf.5.gz
+
+(libao2-arts)
+  /usr/lib/ao/plugins-2/cygarts.dll
+  /usr/lib/ao/plugins-2/libarts.la
+
+(libao2-esd)
+  /usr/lib/ao/plugins-2/cygesd.dll
+  /usr/lib/ao/plugins-2/libesd.la
+
+(libao2-nas)
+  /usr/lib/ao/plugins-2/cygnas.dll
+  /usr/lib/ao/plugins-2/libnas.la
+
+(libao-devel)
+  /usr/include/ao/ao.h
+  /usr/include/ao/os_types.h
+  /usr/include/ao/plugin.h
+  /usr/lib/libao.dll.a
+  /usr/lib/libao.la
+  /usr/lib/pkgconfig/ao.pc
+  /usr/share/aclocal/ao.m4
   /usr/share/doc/libao-0.8.8/ao_append_option.html
   /usr/share/doc/libao-0.8.8/ao_close.html
   /usr/share/doc/libao-0.8.8/ao_default_driver_id.html
@@ -97,33 +124,15 @@ Files included in the binary packages:
   /usr/share/doc/libao-0.8.8/plugin-api.html
   /usr/share/doc/libao-0.8.8/plugin-overview.html
   /usr/share/doc/libao-0.8.8/style.css
-  /usr/share/man/man5/libao.conf.5.gz
-
-(libao2)
-  /usr/bin/cygao-2.dll
-  /usr/lib/ao/plugins-2/cygarts.dll
-  /usr/lib/ao/plugins-2/cygesd.dll
-  /usr/lib/ao/plugins-2/cygnas.dll
-  /usr/lib/ao/plugins-2/cygoss.dll
-  /usr/lib/ao/plugins-2/libarts.la
-  /usr/lib/ao/plugins-2/libesd.la
-  /usr/lib/ao/plugins-2/libnas.la
-  /usr/lib/ao/plugins-2/liboss.la
-
-(libao-devel)
-  /usr/include/ao/ao.h
-  /usr/include/ao/os_types.h
-  /usr/include/ao/plugin.h
-  /usr/lib/libao.dll.a
-  /usr/lib/libao.la
-  /usr/lib/pkgconfig/ao.pc
-  /usr/share/aclocal/ao.m4
 
 ------------------
 
 Port Notes:
 
------ version 0.8.8-1 -----
+----- version 0.8.8-3 -----
+Rebuilt due to unknown breakage.
+
+----- version 0.8.8-2 -----
 Version bump.  Added aRts and NAS support.
 
 

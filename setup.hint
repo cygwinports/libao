@@ -1,6 +1,5 @@
-category: Audio
-requires: 
-sdesc: "Cross platform audio output library (docs)"
+category: _obsolete
+sdesc: "Cross platform audio output library (source)"
 ldesc: "Libao is a cross-platform audio library that allows programs to 
 output audio using a simple API on a wide variety of platforms.  It 
 currently supports:
