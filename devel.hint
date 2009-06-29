@@ -1,5 +1,5 @@
 category: Audio
-requires: cygwin libao2
+requires: libao2
 external-source: libao
 sdesc: "Cross platform audio output library (development)"
 ldesc: "Libao is a cross-platform audio library that allows programs to 

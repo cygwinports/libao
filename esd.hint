@@ -1,5 +1,5 @@
 category: Audio
-requires: cygwin libao2 esound libesound0
+requires: libao2 esound libesound0
 external-source: libao
 sdesc: "Cross platform audio output library (ESD plugin)"
 ldesc: "Libao is a cross-platform audio library that allows programs to 
