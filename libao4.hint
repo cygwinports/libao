@@ -1,5 +1,5 @@
 category: Audio
-requires: libaudio2 libesd0 libgcc1
+requires: libaudio2 libesd0 libpulse0 libpulse-simple0
 external-source: libao
 sdesc: "Cross platform audio output library (runtime)"
 ldesc: "Libao is a cross-platform audio library that allows programs to 
