@@ -1,0 +1,6 @@
+category: Audio
+requires: libaudio2 libesd0 libgcc1
+external-source: libao
+sdesc: "Cross platform audio output library (runtime)"
+ldesc: "Libao is a cross-platform audio library that allows programs to 
+output audio using a simple API on a wide variety of platforms."

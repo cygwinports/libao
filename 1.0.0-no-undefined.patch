@@ -1,0 +1,57 @@
+--- origsrc/libao-1.0.0/configure.ac	2010-03-25 20:07:30.000000000 -0500
++++ src/libao-1.0.0/configure.ac	2011-12-14 17:19:26.646721200 -0600
+@@ -73,8 +73,8 @@ if test -z "$GCC"; then
+ else
+ 
+         case $host in
+-        *-*-linux*)
+-                PLUGIN_LDFLAGS="-export-dynamic -avoid-version"
++        *-*-linux*|*-*-cygwin*)
++                PLUGIN_LDFLAGS="-export-dynamic -module -avoid-version"
+                 DEBUG="-g -Wall -D_REENTRANT -D__NO_MATH_INLINES -fsigned-char"
+                 CFLAGS="-O20 -ffast-math -D_REENTRANT -fsigned-char"
+                 PROFILE="-pg -g -O20 -ffast-math -D_REENTRANT -fsigned-char";;
+@@ -110,6 +110,7 @@ dnl I guess so but it needs to be tested
+ case $host in
+     *-mingw*|*-cygwin*)
+ 	LIBAO_LA_LDFLAGS="-no-undefined"
++	PLUGIN_LDFLAGS="$PLUGIN_LDFLAGS -no-undefined"
+ 	;;
+     *)	
+ 	LIBAO_LA_LDFLAGS=""
+@@ -141,6 +142,10 @@ case $host in
+ 	DLOPEN_FLAG='(RTLD_LAZY)'
+ 	SHARED_LIB_EXT='.so'
+ 	;;
++    *cygwin*)
++	DLOPEN_FLAG='(RTLD_NOW | RTLD_GLOBAL)'
++	SHARED_LIB_EXT='.dll'
++	;;
+     *)
+ 	DLOPEN_FLAG='(RTLD_NOW | RTLD_GLOBAL)'
+ 	SHARED_LIB_EXT='.so'
+--- origsrc/libao-1.0.0/src/plugins/nas/Makefile.am	2010-01-28 15:21:46.000000000 -0600
++++ src/libao-1.0.0/src/plugins/nas/Makefile.am	2011-12-14 17:21:44.516606900 -0600
+@@ -5,13 +5,11 @@ AUTOMAKE_OPTIONS = foreign
+ if HAVE_NAS
+ 
+ nasltlibs = libnas.la
+-nasldflags = -export-dynamic -avoid-version
+ nassources = ao_nas.c
+ 
+ else
+ 
+ nasltlibs =
+-nasldflags =
+ nassources =
+ 
+ endif
+@@ -21,7 +19,7 @@ INCLUDES = -I$(top_builddir)/include/ao
+ libdir = $(plugindir)
+ lib_LTLIBRARIES = $(nasltlibs)
+ 
+-libnas_la_LDFLAGS = $(nasldflags)
++libnas_la_LDFLAGS = @PLUGIN_LDFLAGS@
+ libnas_la_LIBADD = @NAS_LIBS@
+ libnas_la_SOURCES = $(nassources)
+ 

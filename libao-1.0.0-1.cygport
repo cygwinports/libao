@@ -1,0 +1,13 @@
+DESCRIPTION="Xiph OGG container library"
+HOMEPAGE="http://www.vorbis.com/"
+SRC_URI="http://downloads.xiph.org/releases/${PN#lib}/${P}.tar.gz"
+
+PATCH_URI="1.0.0-no-undefined.patch
+           1.0.0-docdir.patch"
+
+PKG_NAMES="libao4 libao-devel"
+libao4_CONTENTS="usr/bin/cygao-4.dll usr/lib/ao/plugins-4/
+                 usr/share/doc/Cygwin/ usr/share/doc/ usr/share/man/"
+libao_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/aclocal/"
+
+CYGCONF_ARGS+=" --disable-alsa --disable-alsa09"
